@@ -37,7 +37,7 @@ module Mercury
 
       def copy_layout_and_css_overrides
         layout_ext = options[:template_engine] || 'erb'
-        copy_file "app/views/layouts/mercury.html.#{layout_ext}"
+        # copy_file "app/views/layouts/mercury.html.#{layout_ext}"
         copy_file 'app/assets/stylesheets/mercury.css'
       end
 
