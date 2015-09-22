@@ -1,3 +1,3 @@
 module Mercury
-  VERSION = '0.9.001'
+  VERSION = '0.9.002'
 end

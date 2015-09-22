@@ -13,7 +13,7 @@ Mercury::Engine.routes.draw do
     put 'update', to: 'mercury#update', as: :mercury_update
     resources :images, to: 'mercury_images', :only => [:create, :destroy]
     get ':type/:resource', to: "mercury#resource"
-    match 'all_snippets', to: "mercury#all_snippets", :via => [:get, :post]
+    match 'snippets/all', to: "mercury#all_snippets", :via => [:get, :post]
     match 'snippets/:name/options', to: "mercury#snippet_options", :via => [:get, :post]
     match 'snippets/:name/preview', to: "mercury#snippet_preview", :via => [:get, :post]
     match 'snippets/:name/parameters', to: "mercury#snippet_parameters", :via => [:get, :post]

@@ -10,7 +10,7 @@ class MercuryController < ActionController::Base
   layout false
 
   def all_snippets
-    render :json => MercurySnippet.select(:snippet).all
+    render :json => MercurySnippet.all.map(&:name)
   end
 
   def update
@@ -24,6 +24,7 @@ class MercuryController < ActionController::Base
 
         if snippets
           snippets.each do |snippet|
+            next if snippet[1].empty?
             snip = MercurySnippet.find_or_create_by_name(snippet[0])
             snip.update_attribute(:snippet, snippet)
           end
