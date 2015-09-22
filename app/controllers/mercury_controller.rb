@@ -5,9 +5,13 @@ class MercuryController < ActionController::Base
 
   protect_from_forgery
 
-  before_filter :authenticate, :only => [:edit, :update, :create]
+  before_filter :authenticate, :only => [:edit, :update, :create, :all_snippets]
 
   layout false
+
+  def all_snippets
+    render :json => MercurySnippet.select(:snippet).all
+  end
 
   def update
     if params[:content]
