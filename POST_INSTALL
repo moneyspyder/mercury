@@ -4,6 +4,10 @@ and other useful info can be found at: https://github.com/mediatainment/mercury
 
 Here's a post install checklist:
 
+# add to your gemfile
+gem 'fog'
+gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp/all'
+
 * Add and ENV Variable IMAGE_STORAGE_ENGINE with "fog" or "file"
 
 set them to empty if not used.
