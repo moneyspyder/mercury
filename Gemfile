@@ -8,6 +8,9 @@ gem 'jquery-rails'
 gem 'sqlite3'
 gem 'teabag'
 gem 'dropzonejs-rails'
+gem 'carrierwave'
+gem 'carrierwave-ftp'
+gem 'fog'
 
 group :assets do
   gem 'sass-rails'

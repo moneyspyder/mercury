@@ -6,6 +6,19 @@ Here's a post install checklist:
 
 * Add and ENV Variable IMAGE_STORAGE_ENGINE with "fog" or "file"
 
+set them to empty if not used.
+IMAGE_STORAGE_ENGINE=s3
+S3_SECRET=your_secret
+S3_REGION=eu-west-1
+S3_BUCKET_NAME=your_bucket_name
+S3_KEY=s3_key
+
+IMAGE_STORAGE_ENGINE=ftp
+FTP_FOLDER=                 "/"
+FTP_HOST=                   "ftp.gusta-v.at"
+FTP_PASSWORD=               "asdfasdf1"
+FTP_URL=                    "http://assets-development.gusta-v.at"
+FTP_USER=                   "466608-developer"
 * add //= require mercury # to your application.js
 
 * DONT FORGET TO MIGRATE THE TB
