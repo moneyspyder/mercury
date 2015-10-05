@@ -19,13 +19,13 @@ class MercuryController < ActionController::Base
       params[:content].each do |content|
         return if content.is_a? Hash
         content_data = content[1]
-        c = MercuryContent.find_or_create_by_name_and_type(content[0], content_data['type'])
+        c = MercuryContent.where(name: content[0], type: content_data['type']).first_or_initialize
         snippets = content_data.delete('snippets')
 
         if snippets
           snippets.each do |snippet|
             next if snippet[1].empty?
-            snip = MercurySnippet.find_or_create_by_name(snippet[0])
+            snip = MercurySnippet.where(name: snippet[0]).first_or_create
             snip.update_attribute(:snippet, snippet)
           end
         end

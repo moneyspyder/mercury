@@ -1,5 +1,4 @@
 class MercuryContent < ActiveRecord::Base
-  include FriendlyId
 
   self.inheritance_column = nil # to use :data as column_name
 

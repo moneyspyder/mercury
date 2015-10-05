@@ -23,7 +23,7 @@ class MercuryImagesController < MercuryController
   def update
     image_params = params[:image]
     if image_params
-      mercury_image = MercuryImage.find_or_create_by_name image_params.first[0]
+      mercury_image = MercuryImage.where(name: image_params.first[0]).first_or_create
       the_file = image_params.first[1]
       mercury_image.image.store!(the_file)
       mercury_image.update_attribte :image_url, mercury_image.image.file.path
