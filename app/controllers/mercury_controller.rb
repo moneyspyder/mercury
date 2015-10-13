@@ -68,4 +68,8 @@ class MercuryController < ActionController::Base
   def authenticate
     redirect_to "/#{params[:requested_uri]}" unless can_edit?
   end
+
+  def mercury_content_params
+    params.require(:content).permit(:name, :type, :value, :data, :settings, :width, :height)
+  end
 end
