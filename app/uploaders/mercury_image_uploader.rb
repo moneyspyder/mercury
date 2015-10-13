@@ -5,7 +5,7 @@ class MercuryImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage ENV['IMAGE_STORAGE_ENGINE'].downcase.to_sym
+  storage ENV['IMAGE_STORAGE_MODEL_ENGINE'].downcase.to_sym
 
   before :store, :remember_cache_id
   after :store, :delete_tmp_dir
