@@ -21,7 +21,7 @@ module MercuryHelper
     options = args.extract_options!
     tag_id = options[:i18n] ? localize_id(args.first) : args.first
     options[:type] ||= args.second || :simple
-    content = MercuryContent.find_or_create_by_name_and_type(tag_id, options[:type])
+    content = MercuryContent.where(name: tag_id, type: options[:type]).first_or_create
 
     if options[:type] == :image
       mercury_image_tag(content, options)
@@ -84,7 +84,7 @@ module MercuryHelper
     if content.value =~ snippet_regex
       content.value.gsub(snippet_regex) do |txt|
         cleaned_snippet = txt.delete "[]" # delete brackets
-        snippet = MercurySnippet.find_by_name(cleaned_snippet)
+        snippet = MercurySnippet.where(name: cleaned_snippet).first
         if snippet
           name = snippet.snippet[1]['name']
           render(:file => "mercury/snippets/#{name}/preview.html", locals: {params: snippet.snippet[1]})
