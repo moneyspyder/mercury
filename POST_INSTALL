@@ -16,6 +16,8 @@ S3_SECRET=your_secret
 S3_REGION=eu-west-1
 S3_BUCKET_NAME=your_bucket_name
 S3_KEY=s3_key
+IMAGE_STORAGE_MODEL_ENGINE=fog,file,...
+IMAGE_STORAGE_ENGINE=s3,ftp,...
 
 IMAGE_STORAGE_ENGINE=ftp
 FTP_FOLDER=                 "/"
